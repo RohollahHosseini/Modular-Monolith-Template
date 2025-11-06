@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.10" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BuildingBlocks\Blog.BuildingBlocks.Infrastrocture\Blog.BuildingBlocks.Infrastrocture.csproj" />
+    <ProjectReference Include="..\Blog.Modules.LogSystem.Domain\Blog.Modules.LogSystem.Domain.csproj" />
+  </ItemGroup>
+</Project>

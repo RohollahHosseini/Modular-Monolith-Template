@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="8.4.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.10" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Blog.BuildingBlocks.Application\Blog.BuildingBlocks.Application.csproj" />
+    <ProjectReference Include="..\Blog.BuildingBlocks.Model\Blog.BuildingBlocks.Model.csproj" />
+  </ItemGroup>
+
+</Project>

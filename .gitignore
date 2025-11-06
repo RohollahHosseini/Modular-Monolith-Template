@@ -1,0 +1,28 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/src/Blog Project/.vs
+/src/Blog Project/Api/Blog.Web.Api/bin/Debug/net9.0
+/src/Blog Project/Api/Blog.Web.Api/obj
+/src/Blog Project/BuildingBlocks/Blog.BuildingBlocks.Application/bin/Debug/net9.0
+/src/Blog Project/BuildingBlocks/Blog.BuildingBlocks.Application/obj
+/src/Blog Project/BuildingBlocks/Blog.BuildingBlocks.Infrastrocture/bin/Debug/net9.0
+/src/Blog Project/BuildingBlocks/Blog.BuildingBlocks.Infrastrocture/obj
+/src/Blog Project/BuildingBlocks/Blog.BuildingBlocks.Model/bin/Debug/net9.0
+/src/Blog Project/BuildingBlocks/Blog.BuildingBlocks.Model/obj
+/src/Blog Project/Modules/Content/Blog.Modules.Content.Application/bin/Debug/net9.0
+/src/Blog Project/Modules/Content/Blog.Modules.Content.Application/obj
+/src/Blog Project/Modules/Content/Blog.Modules.Content.Infrastrocture/bin/Debug/net9.0
+/src/Blog Project/Modules/Content/Blog.Modules.Content.Infrastrocture/obj
+/src/Blog Project/Modules/Content/Blog.Modules.Content.IntegrationEvents/bin/Debug/net9.0
+/src/Blog Project/Modules/Content/Blog.Modules.Content.IntegrationEvents/obj
+/src/Blog Project/Modules/Content/Blog.Modules.Content.Model/bin/Debug/net9.0
+/src/Blog Project/Modules/Content/Blog.Modules.Content.Model/obj
+/src/Blog Project/Modules/LogSystem/Blog.Modules.LogSystem.Application/bin/Debug/net9.0
+/src/Blog Project/Modules/LogSystem/Blog.Modules.LogSystem.Application/obj
+/src/Blog Project/Modules/LogSystem/Blog.Modules.LogSystem.Domain/bin/Debug/net9.0
+/src/Blog Project/Modules/LogSystem/Blog.Modules.LogSystem.Domain/obj
+/src/Blog Project/Modules/LogSystem/Blog.Modules.LogSystem.Infrastrocture/bin/Debug/net9.0
+/src/Blog Project/Modules/LogSystem/Blog.Modules.LogSystem.Infrastrocture/obj

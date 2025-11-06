@@ -1,0 +1,10 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BuildingBlocks\Blog.BuildingBlocks.Application\Blog.BuildingBlocks.Application.csproj" />
+    <ProjectReference Include="..\..\..\BuildingBlocks\Blog.BuildingBlocks.Infrastrocture\Blog.BuildingBlocks.Infrastrocture.csproj" />
+    <ProjectReference Include="..\Blog.Modules.Content.Model\Blog.Modules.Content.Model.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Features\Blog\Queries\" />
+  </ItemGroup>
+</Project>
