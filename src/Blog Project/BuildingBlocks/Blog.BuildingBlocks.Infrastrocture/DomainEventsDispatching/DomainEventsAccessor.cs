@@ -3,7 +3,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Blog.BuildingBlocks.Infrastrocture.DomainEventsDispatching
 {
-    public class DomainEventsAccessor(DbContext dbContext) : IDomainEventsAccessor
+    public class DomainEventsAccessor<TDbContext>(TDbContext dbContext) : IDomainEventsAccessor
+        where TDbContext : DbContext    
     {
         public IReadOnlyCollection<IDomainEvent> GetAllDomainEvents()
         {

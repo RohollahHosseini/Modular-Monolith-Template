@@ -26,3 +26,11 @@
 /src/Blog Project/Modules/LogSystem/Blog.Modules.LogSystem.Domain/obj
 /src/Blog Project/Modules/LogSystem/Blog.Modules.LogSystem.Infrastrocture/bin/Debug/net9.0
 /src/Blog Project/Modules/LogSystem/Blog.Modules.LogSystem.Infrastrocture/obj
+/src/Blog Project/Api/Blog.Web.Api/appsettings.Development.json
+/src/Blog Project/BuildingBlocks/Blog.BuildingBlocks.Peresentation/bin/Debug/net9.0
+/src/Blog Project/BuildingBlocks/Blog.BuildingBlocks.Peresentation/obj
+/src/Blog Project/Modules/Content/Blog.Modules.Content.Peresentation/bin/Debug/net9.0
+/src/Blog Project/Modules/Content/Blog.Modules.Content.Peresentation/obj
+/src/Blog Project/Modules/LogSystem/Blog.Modules.LogSystem.Peresentation/bin/Debug/net9.0
+/src/Blog Project/Modules/LogSystem/Blog.Modules.LogSystem.Peresentation/obj
+/src/Blog Project/obj

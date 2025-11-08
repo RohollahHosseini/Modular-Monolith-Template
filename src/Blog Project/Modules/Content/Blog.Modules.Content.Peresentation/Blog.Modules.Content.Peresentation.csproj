@@ -1,0 +1,8 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BuildingBlocks\Blog.BuildingBlocks.Peresentation\Blog.BuildingBlocks.Peresentation.csproj" />
+    <ProjectReference Include="..\Blog.Modules.Content.Application\Blog.Modules.Content.Application.csproj" />
+  </ItemGroup>
+
+</Project>

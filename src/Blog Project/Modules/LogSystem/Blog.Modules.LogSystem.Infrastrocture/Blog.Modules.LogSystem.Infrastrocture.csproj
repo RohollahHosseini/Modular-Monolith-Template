@@ -1,9 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.10" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.10" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.10" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\BuildingBlocks\Blog.BuildingBlocks.Infrastrocture\Blog.BuildingBlocks.Infrastrocture.csproj" />
+    <ProjectReference Include="..\Blog.Modules.LogSystem.Application\Blog.Modules.LogSystem.Application.csproj" />
     <ProjectReference Include="..\Blog.Modules.LogSystem.Domain\Blog.Modules.LogSystem.Domain.csproj" />
+    <ProjectReference Include="..\Blog.Modules.LogSystem.Peresentation\Blog.Modules.LogSystem.Peresentation.csproj" />
   </ItemGroup>
 </Project>

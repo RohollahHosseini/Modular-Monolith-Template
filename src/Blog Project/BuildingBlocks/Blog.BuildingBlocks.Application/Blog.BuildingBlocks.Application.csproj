@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="12.1.0" />
-    <PackageReference Include="Mediator.Abstractions" Version="3.1.0-preview.4" />
+    <PackageReference Include="MediatR" Version="12.2.0" />
   </ItemGroup>
-  <ItemGroup>
+	<ItemGroup>
     <ProjectReference Include="..\Blog.BuildingBlocks.Model\Blog.BuildingBlocks.Model.csproj" />
   </ItemGroup>
 </Project>

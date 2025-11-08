@@ -16,6 +16,7 @@
     <ProjectReference Include="..\..\..\BuildingBlocks\Blog.BuildingBlocks.Infrastrocture\Blog.BuildingBlocks.Infrastrocture.csproj" />
     <ProjectReference Include="..\Blog.Modules.Content.Application\Blog.Modules.Content.Application.csproj" />
     <ProjectReference Include="..\Blog.Modules.Content.Model\Blog.Modules.Content.Model.csproj" />
+    <ProjectReference Include="..\Blog.Modules.Content.Peresentation\Blog.Modules.Content.Peresentation.csproj" />
   </ItemGroup>
 
 </Project>

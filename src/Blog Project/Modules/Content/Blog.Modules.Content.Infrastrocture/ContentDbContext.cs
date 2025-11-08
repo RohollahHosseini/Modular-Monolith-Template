@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Blog.Modules.Content.Infrastrocture
 {
-    public class ContentDbcontext(DbContextOptions<ContentDbcontext> option):DbContext(option)
+    public class ContentDbcontext(DbContextOptions<ContentDbcontext> option) :DbContext(option)
     {
         public DbSet<OutboxMessage> OutboxMessages { get; set; }
 

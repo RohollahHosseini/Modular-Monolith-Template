@@ -13,7 +13,7 @@ namespace Blog.Modules.Content.Model.Blog
     public sealed class BlogEntity:BaseEntity<Guid>
     {
 
-        private readonly List<LogValueObject> _changeLog;
+        private readonly List<LogValueObject> _changeLog =new();
 
         public string BlogTitle { get; private set; }
         public string BlogContent { get; private set; }
@@ -70,7 +70,7 @@ namespace Blog.Modules.Content.Model.Blog
             @blogEntity._changeLog.Add(new LogValueObject() { NetryDate = DateTime.UtcNow, Message = $"Blog Created.",AdditionsDescription=$"Blog Id :{@blogEntity.Id}"});
 
 
-            @blogEntity.Raise(new BlogCreatedDomainEvent(Id,BlogTitle));
+            @blogEntity.Raise(new BlogCreatedDomainEvent(@blogEntity.Id, @blogEntity.BlogTitle));
 
             return @blogEntity;
 

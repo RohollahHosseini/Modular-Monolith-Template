@@ -11,7 +11,17 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\BuildingBlocks\Blog.BuildingBlocks.Infrastrocture\Blog.BuildingBlocks.Infrastrocture.csproj" />
+    <ProjectReference Include="..\..\Modules\Content\Blog.Modules.Content.Infrastrocture\Blog.Modules.Content.Infrastrocture.csproj" />
+    <ProjectReference Include="..\..\Modules\LogSystem\Blog.Modules.LogSystem.Infrastrocture\Blog.Modules.LogSystem.Infrastrocture.csproj" />
   </ItemGroup>
 
 </Project>

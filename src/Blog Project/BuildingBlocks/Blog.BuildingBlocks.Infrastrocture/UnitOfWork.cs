@@ -1,10 +1,11 @@
-﻿using Blog.BuildingBlocks.Infrastrocture.DomainEventsDispatching;
+﻿using Blog.BuildingBlocks.Application.Contracts.UnitOfWork;
+using Blog.BuildingBlocks.Infrastrocture.DomainEventsDispatching;
 using Microsoft.EntityFrameworkCore;
 
 namespace Blog.BuildingBlocks.Infrastrocture
 {
     public class UnitOfWork
-        (DbContext context, IDomainEventsDispatcher domainEventsDispatcher) : IUnitOfWork
+        (DbContext context, IDomainEventsDispatcher domainEventsDispatcher) 
     {
 
         public async Task<int> CommitAsync(CancellationToken cancellationToken = default, Guid? internalCommandId = null)

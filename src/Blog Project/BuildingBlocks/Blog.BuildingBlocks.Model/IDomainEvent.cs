@@ -1,4 +1,5 @@
-﻿using Mediator;
+﻿
+using MediatR;
 
 namespace Blog.BuildingBlocks.Model
 {

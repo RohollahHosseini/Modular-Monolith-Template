@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Blog.BuildingBlocks.Infrastrocture
+﻿namespace Blog.BuildingBlocks.Application.Contracts.UnitOfWork
 {
     public interface IUnitOfWork
     {
