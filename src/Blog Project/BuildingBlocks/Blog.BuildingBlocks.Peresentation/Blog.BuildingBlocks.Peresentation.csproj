@@ -3,6 +3,10 @@
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
 	</ItemGroup>
 	<ItemGroup>
+	  <PackageReference Include="FluentValidation" Version="12.1.0" />
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+	</ItemGroup>
+	<ItemGroup>
 	  <ProjectReference Include="..\Blog.BuildingBlocks.Model\Blog.BuildingBlocks.Model.csproj" />
 	</ItemGroup>
 </Project>

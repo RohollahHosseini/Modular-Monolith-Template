@@ -5,7 +5,8 @@ using Blog.BuildingBlocks.Application.ServiceConfiguration;
 using System.Reflection;
 using Blog.Web.Api.Extensions;
 using Blog.BuildingBlocks.Infrastrocture.ServiceConfiguration;
-using Autofac;
+using Blog.BuildingBlocks.Peresentation.EndpointFilterPipeline;
+using Blog.BuildingBlocks.Peresentation.EndpointFilters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +35,14 @@ builder.Services.ServiceCollectionExtensionsBuildingBlock();
 builder.Services.BlogServiceCollactionExtensions(configuration);
 builder.Services.LogSystemServiceCollactionExtensions(configuration);
 
+#region Endpoint Filter
+builder.Services.AddScoped<IEndpointFilter, ApiResultFilterAttribute>();
+builder.Services.AddScoped<IEndpointFilter, BadRequestResultEndpointFilter>();
+builder.Services.AddScoped<IEndpointFilter, ContentResultEndpointFilter>();
+builder.Services.AddScoped<IEndpointFilter, ModelStateValidationEndpointFilter>();
+builder.Services.AddScoped<IEndpointFilter, NotFoundResultEndpointFilter>();
+
+#endregion
 
 
 Assembly[] moduleApplicationAssemblies = [
@@ -53,6 +62,9 @@ if (app.Environment.IsDevelopment())
     app.ApplyMigrations();
 
 }
+
+app.UseApiResultMiddleware();
+
 
 app.UseHttpsRedirection();
 
