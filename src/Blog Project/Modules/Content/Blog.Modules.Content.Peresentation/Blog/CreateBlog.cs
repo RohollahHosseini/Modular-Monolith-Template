@@ -10,7 +10,9 @@ namespace Blog.Modules.Content.Peresentation.Blog
     {
         public void MapEndpoint(IEndpointRouteBuilder app)
         {
-            app.MapPost("blog", async(CreateBlogCommand model, ISender sender )=> 
+            var apies = app.MapGroup("/blog");
+
+            apies.MapPost("/", async(CreateBlogCommand model, ISender sender )=> 
             {
                 var command = await sender.Send(model);
 

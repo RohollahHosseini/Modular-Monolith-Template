@@ -3,10 +3,13 @@ using Blog.Modules.Content.Infrastrocture.ServiceConfiguration;
 using Blog.Modules.LogSystem.Infrastrocture.ServiceConfiguration;
 using Blog.BuildingBlocks.Application.ServiceConfiguration;
 using System.Reflection;
-using Blog.Web.Api.Extensions;
+using Blog.Web.WebFramwork;
 using Blog.BuildingBlocks.Infrastrocture.ServiceConfiguration;
 using Blog.BuildingBlocks.Peresentation.EndpointFilterPipeline;
 using Blog.BuildingBlocks.Peresentation.EndpointFilters;
+using Blog.Web.WebFramwork.Swagger;
+using Blog.Web.WebFramwork.ServiceConfiguration;
+using Blog.Web.WebFramwork.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,22 +21,15 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
-//// 🔹 این خط Autofac را جایگزین DI پیش‌فرض می‌کند
-//builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder.Services.AddSwagger("v1", "v1.1");
 
-//// 🔹 اینجا ماژول‌های Autofac را رجیستر کن
-//builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
-//{
-//    // این ماژول‌ها به دلخواه تو هستند
-//    containerBuilder.RegisterModule(new BuildingBlocksModule());
-//    containerBuilder.RegisterModule(new ContentModule());
-//    containerBuilder.RegisterModule(new LogSystemModule());
-//});
-
-
+builder.Services.AddWebFrameworkServices();
 builder.Services.ServiceCollectionExtensionsBuildingBlock();
 builder.Services.BlogServiceCollactionExtensions(configuration);
 builder.Services.LogSystemServiceCollactionExtensions(configuration);
+
+builder.Services.AddExceptionHandler<ExceptionHandler>();
+
 
 #region Endpoint Filter
 builder.Services.AddScoped<IEndpointFilter, ApiResultFilterAttribute>();
@@ -62,6 +58,8 @@ if (app.Environment.IsDevelopment())
     app.ApplyMigrations();
 
 }
+
+app.UseSwaggerAndUi();
 
 app.UseApiResultMiddleware();
 

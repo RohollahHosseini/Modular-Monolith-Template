@@ -1,8 +1,10 @@
 ﻿using Blog.Modules.Content.Infrastrocture;
 using Blog.Modules.LogSystem.Infrastrocture;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace Blog.Web.Api.Extensions
+namespace Blog.Web.WebFramwork
 {
     public static class MigrationExtensions
     {
