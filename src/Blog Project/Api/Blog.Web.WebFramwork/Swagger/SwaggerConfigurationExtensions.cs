@@ -15,7 +15,7 @@ namespace Blog.Web.WebFramwork.Swagger
 
             foreach (var version in versions)
             {
-                services.AddOpenApiDocument(options =>
+                services.AddSwaggerDocument(options =>
                 {
                     options.Title = "Modular Monolith OpenAPI docs";
                     options.Version = version;

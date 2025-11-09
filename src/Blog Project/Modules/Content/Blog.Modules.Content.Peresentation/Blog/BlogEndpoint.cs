@@ -13,14 +13,12 @@ namespace Blog.Modules.Content.Peresentation.Blog
     {
         public void MapEndpoint(IEndpointRouteBuilder app)
         {
-            var apies = app.MapGroup("/blog")
+            var apies = app.MapGroup("api/v1/blog")
                 .WithTags("Blog")
                 .AddEndpointFilter<OkResultEndpointFilter>()
                 .AddEndpointFilter<NotFoundResultEndpointFilter>()
                 .AddEndpointFilter<BadRequestResultEndpointFilter>()
                 .AddEndpointFilter<ModelStateValidationEndpointFilter>();
-                //.AddEndpointFilter<ApiResultFilterAttribute>()
-                //.AddEndpointFilter<ContentResultEndpointFilter>()
 
             apies.MapPost("/", async(CreateBlogCommand model, ISender sender )=> 
             {

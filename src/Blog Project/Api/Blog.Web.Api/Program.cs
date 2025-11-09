@@ -21,11 +21,11 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerDocument(config =>
-{
-    config.Title = "Main API";
-    config.DocumentName = "Modular monolith";
-});
+//builder.Services.AddSwaggerDocument(config =>
+//{
+//    config.Title = "Main API";
+//    config.DocumentName = "Modular monolith";
+//});
 //builder.Services.AddOpenApiDocument(config =>
 //{
 //    config.Title = "Main API";
@@ -74,8 +74,6 @@ app.MapEndpoints();
 app.UseExceptionHandler(_ => { });
 
 app.UseSwaggerAndUi();
-
-app.UseApiResultMiddleware();
 
 app.UseHttpsRedirection();
 
