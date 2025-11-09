@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 
-namespace Blog.BuildingBlocks.Peresentation.Extensions
+namespace Blog.BuildingBlocks.SharedKernel.Extensions
 {
     public static class EnumExtensions
     {
@@ -41,7 +41,6 @@ namespace Blog.BuildingBlocks.Peresentation.Extensions
         {
             return Enum.GetValues(value.GetType()).Cast<Enum>().ToDictionary(p => Convert.ToInt32(p), q => q.ToDisplay());
         }
-
     }
 
     public enum DisplayProperty

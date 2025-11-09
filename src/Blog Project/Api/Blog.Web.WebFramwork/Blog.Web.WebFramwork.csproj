@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\BuildingBlocks\Blog.BuildingBlocks.SharedKernel\Blog.BuildingBlocks.SharedKernel.csproj" />
     <ProjectReference Include="..\..\Modules\Content\Blog.Modules.Content.Infrastrocture\Blog.Modules.Content.Infrastrocture.csproj" />
     <ProjectReference Include="..\..\Modules\LogSystem\Blog.Modules.LogSystem.Infrastrocture\Blog.Modules.LogSystem.Infrastrocture.csproj" />
   </ItemGroup>

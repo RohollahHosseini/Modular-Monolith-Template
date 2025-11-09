@@ -1,12 +1,7 @@
 ﻿using Blog.BuildingBlocks.Peresentation.ApiResult;
 using Blog.BuildingBlocks.Peresentation.EndpointFilters.EndpointFilterAbstract;
-using Blog.BuildingBlocks.Peresentation.Extensions;
+using Blog.BuildingBlocks.SharedKernel.Extensions;
 using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Blog.BuildingBlocks.Peresentation.EndpointFilters
 {

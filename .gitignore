@@ -36,3 +36,5 @@
 /src/Blog Project/obj
 /src/Blog Project/Api/Blog.Web.WebFramwork/bin/Debug/net9.0
 /src/Blog Project/Api/Blog.Web.WebFramwork/obj
+/src/Blog Project/BuildingBlocks/Blog.BuildingBlocks.SharedKernel/bin/Debug/net9.0
+/src/Blog Project/BuildingBlocks/Blog.BuildingBlocks.SharedKernel/obj

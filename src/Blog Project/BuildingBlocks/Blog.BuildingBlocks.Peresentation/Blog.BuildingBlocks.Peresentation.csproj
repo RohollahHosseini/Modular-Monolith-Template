@@ -7,6 +7,8 @@
 	  <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
 	</ItemGroup>
 	<ItemGroup>
+	  <ProjectReference Include="..\Blog.BuildingBlocks.Application\Blog.BuildingBlocks.Application.csproj" />
 	  <ProjectReference Include="..\Blog.BuildingBlocks.Model\Blog.BuildingBlocks.Model.csproj" />
+	  <ProjectReference Include="..\Blog.BuildingBlocks.SharedKernel\Blog.BuildingBlocks.SharedKernel.csproj" />
 	</ItemGroup>
 </Project>

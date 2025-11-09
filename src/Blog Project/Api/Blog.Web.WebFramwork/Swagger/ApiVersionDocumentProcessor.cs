@@ -1,10 +1,6 @@
-﻿using NSwag.Generation.Processors;
+﻿using Blog.BuildingBlocks.SharedKernel.Extensions;
+using NSwag.Generation.Processors;
 using NSwag.Generation.Processors.Contexts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Blog.Web.WebFramwork.Swagger
 {

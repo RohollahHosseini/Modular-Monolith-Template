@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Blog.Web.WebFramwork
+namespace Blog.BuildingBlocks.SharedKernel.Extensions
 {
     public static class RegExHelpers
     {

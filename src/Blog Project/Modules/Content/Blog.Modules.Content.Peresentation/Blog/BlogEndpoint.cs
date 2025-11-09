@@ -5,6 +5,7 @@ using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using Blog.BuildingBlocks.Peresentation.WebExtensions;
 
 namespace Blog.Modules.Content.Peresentation.Blog
 {
@@ -14,18 +15,18 @@ namespace Blog.Modules.Content.Peresentation.Blog
         {
             var apies = app.MapGroup("/blog")
                 .WithTags("Blog")
-                .AddEndpointFilter<ApiResultFilterAttribute>()
-                .AddEndpointFilter<BadRequestResultEndpointFilter>()
-                .AddEndpointFilter<ContentResultEndpointFilter>()
-                .AddEndpointFilter<ModelStateValidationEndpointFilter>()
+                .AddEndpointFilter<OkResultEndpointFilter>()
                 .AddEndpointFilter<NotFoundResultEndpointFilter>()
-                .AddEndpointFilter<OkResultEndpointFilter>();
+                .AddEndpointFilter<BadRequestResultEndpointFilter>()
+                .AddEndpointFilter<ModelStateValidationEndpointFilter>();
+                //.AddEndpointFilter<ApiResultFilterAttribute>()
+                //.AddEndpointFilter<ContentResultEndpointFilter>()
 
             apies.MapPost("/", async(CreateBlogCommand model, ISender sender )=> 
             {
-                var command = await sender.Send(model);
+                var result = await sender.Send(model);
 
-                return command;
+                return result.ToEndpointResult();
             });
         }
     }
