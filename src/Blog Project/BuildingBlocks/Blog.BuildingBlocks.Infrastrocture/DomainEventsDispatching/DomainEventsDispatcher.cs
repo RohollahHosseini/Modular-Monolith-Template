@@ -11,11 +11,15 @@ using Newtonsoft.Json;
 
 namespace Blog.BuildingBlocks.Infrastrocture.DomainEventsDispatching
 {
-    public class DomainEventsDispatcher(IMediator mediator, IOutbox outbox, IDomainEventsAccessor domainEventsAccessor, IServiceScopeFactory serviceScopeFactory, IDomainNotificationsMapper domainNotificationsMapper) : IDomainEventsDispatcher
+    public class DomainEventsDispatcher(IMediator mediator, IOutbox outbox, IEnumerable<IDomainEventsAccessor> domainEventsAccessor, IServiceScopeFactory serviceScopeFactory, IDomainNotificationsMapper domainNotificationsMapper) : IDomainEventsDispatcher
     {
         public async Task DispatchEventsAsync()
         {
-            var domainEvents=domainEventsAccessor.GetAllDomainEvents();
+            //var domainEvents=domainEventsAccessor.GetAllDomainEvents();
+
+            var domainEvents = domainEventsAccessor
+      .SelectMany(a => a.GetAllDomainEvents())
+      .ToList();
 
             List<IDomainEventNotification<IDomainEvent>> domainEventNotifications = [];
 
@@ -28,7 +32,6 @@ namespace Blog.BuildingBlocks.Infrastrocture.DomainEventsDispatching
                 Type domainEvenNotificationType = typeof(IDomainEventNotification<>);
                 var domainNotificationWithGenericType = domainEvenNotificationType.MakeGenericType(domainEvent.GetType());
 
-                // resolve instance با constructor parameters
                 var domainNotification = ActivatorUtilities.CreateInstance(
                     provider,
                     domainNotificationWithGenericType,
@@ -50,7 +53,10 @@ namespace Blog.BuildingBlocks.Infrastrocture.DomainEventsDispatching
                 //    domainEventNotifications.Add(domainNotification as IDomainEventNotification<IDomainEvent>);
                 //}
             }
-            domainEventsAccessor.ClearAllDomainEvents();
+            //  domainEventsAccessor.ClearAllDomainEvents();
+
+            foreach (var accessor in domainEventsAccessor)
+                accessor.ClearAllDomainEvents();
 
             foreach (var domainEvent in domainEvents)
             {
