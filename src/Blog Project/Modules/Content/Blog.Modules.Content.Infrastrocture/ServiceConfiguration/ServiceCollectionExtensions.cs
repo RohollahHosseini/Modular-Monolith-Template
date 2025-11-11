@@ -11,6 +11,8 @@ using Blog.Modules.Content.Infrastrocture.Outbox;
 using Blog.BuildingBlocks.Infrastrocture.DomainEventsDispatching;
 using Blog.Modules.Content.Infrastrocture.UnitOfWork;
 using Blog.Modules.Content.Application.Conteracts.UnitOfWork;
+using Blog.Modules.Content.Model.Blog.Events;
+using Blog.Modules.Content.Application.EventNotification.Content;
 
 namespace Blog.Modules.Content.Infrastrocture.ServiceConfiguration
 {
@@ -21,6 +23,11 @@ namespace Blog.Modules.Content.Infrastrocture.ServiceConfiguration
             services.AddInfrastrocture(configuration);
 
             services.AddEndpoints(AssemblyReference.Assembly);
+
+            var domainNotificationsMap = new BiDictionary<string, Type>();
+            domainNotificationsMap.Add(nameof(BlogCreatedDomainEvent), typeof(CreateBlogNotification));
+
+            services.AddSingleton(domainNotificationsMap);
 
             return services;
         }
