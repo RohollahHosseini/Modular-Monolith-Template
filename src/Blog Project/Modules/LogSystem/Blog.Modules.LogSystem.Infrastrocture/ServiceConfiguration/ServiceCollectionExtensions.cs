@@ -2,7 +2,9 @@
 using Blog.BuildingBlocks.Infrastrocture.DomainEventsDispatching;
 using Blog.BuildingBlocks.Peresentation.Endpoints;
 using Blog.Modules.LogSystem.Application.Contracts.UnitOfWork;
+using Blog.Modules.LogSystem.Application.Proccessing.InternalCommand;
 using Blog.Modules.LogSystem.Domain.Log.Repository;
+using Blog.Modules.LogSystem.Infrastrocture.Proccessing.InternalCommand;
 using Blog.Modules.LogSystem.Infrastrocture.Repository;
 using Blog.Modules.LogSystem.Infrastrocture.UnitOfWork;
 using Blog.Modules.LogSystem.Peresentation;
@@ -21,6 +23,7 @@ namespace Blog.Modules.LogSystem.Infrastrocture.ServiceConfiguration
 
             services.AddEndpoints(AssemblyReference.Assembly);
 
+
             return services;
         }
 
@@ -33,6 +36,7 @@ namespace Blog.Modules.LogSystem.Infrastrocture.ServiceConfiguration
             services.AddScoped<IDomainEventsAccessor, DomainEventsAccessor<LogDbContext>>();
             services.AddScoped<ILogUnitOfWork, LogUnitOfWork>();
             services.AddScoped<ILogRepository, LogRepository>();
+            services.AddScoped<ILogCommandsScheduler, LogCommandsScheduler>();
         }
 
     }

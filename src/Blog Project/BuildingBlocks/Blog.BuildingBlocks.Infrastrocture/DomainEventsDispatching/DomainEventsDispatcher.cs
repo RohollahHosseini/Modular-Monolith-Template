@@ -1,10 +1,5 @@
-﻿
-using Autofac;
-using Autofac.Core;
-using Blog.BuildingBlocks.Application.Events;
-using Blog.BuildingBlocks.Infrastrocture.Outbox;
+﻿using Blog.BuildingBlocks.Infrastrocture.Outbox;
 using Blog.BuildingBlocks.Infrastrocture.Serialization;
-using Blog.BuildingBlocks.Model;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
