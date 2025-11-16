@@ -7,7 +7,7 @@ namespace Blog.Modules.LogSystem.Domain.Log
     {
 
 
-        public static LogInternalCommandEntity CreateInternamCommand(Guid Id,DateTime EnqueueDate, string Type, string Data, DateTime? ProcessedDate,string? Error=default)
+        public static LogInternalCommandEntity CreateInternamCommand(Guid Id,DateTime EnqueueDate, string Type, string Data, DateTime? ProcessedDate=null,string? Error=default)
         {
             LogInternalCommandEntity logInternalCommandEntity = new()
             {

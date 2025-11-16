@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace Blog.Modules.LogSystem.Infrastrocture.Proccessing.InternalCommand
 {
-    public class LogCommandsScheduler(LogDbContext logDbContext) : ILogCommandsScheduler
+    public class LogCommandsSchedulers(LogDbContext logDbContext) : ILogCommandsScheduler
     {
         public Task EnqueueAsync<T>(ICommand<T> command)
         {

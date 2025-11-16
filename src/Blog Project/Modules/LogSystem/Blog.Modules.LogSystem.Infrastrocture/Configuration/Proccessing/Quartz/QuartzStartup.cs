@@ -1,4 +1,5 @@
 ﻿using Blog.Modules.LogSystem.Infrastrocture.Configuration.Proccessing.Inbox;
+using Blog.Modules.LogSystem.Infrastrocture.Configuration.Proccessing.InternalCommands;
 using Quartz;
 using Quartz.Impl;
 using System.Collections.Specialized;
@@ -72,31 +73,31 @@ namespace Blog.Modules.LogSystem.Infrastrocture.Configuration.Proccessing.Quartz
                 .ScheduleJob(processInboxJob, processInboxTrigger)
                 .GetAwaiter().GetResult();
 
-            //var processInternalCommandsJob = JobBuilder.Create<ProcessInternalCommandsJob>().Build();
+            var processInternalCommandsJob = JobBuilder.Create<ProcessInternalCommandsJob>().Build();
 
-            //ITrigger processInternalCommandsTrigger;
-            //if (internalProcessingPoolingInterval.HasValue)
-            //{
-            //    processInternalCommandsTrigger =
-            //        TriggerBuilder
-            //            .Create()
-            //            .StartNow()
-            //            .WithSimpleSchedule(x =>
-            //                x.WithInterval(TimeSpan.FromMilliseconds(internalProcessingPoolingInterval.Value))
-            //                    .RepeatForever())
-            //            .Build();
-            //}
-            //else
-            //{
-            //    processInternalCommandsTrigger =
-            //        TriggerBuilder
-            //            .Create()
-            //            .StartNow()
-            //            .WithCronSchedule("0/2 * * ? * *")
-            //    .Build();
-            //}
+            ITrigger processInternalCommandsTrigger;
+            if (internalProcessingPoolingInterval.HasValue)
+            {
+                processInternalCommandsTrigger =
+                    TriggerBuilder
+                        .Create()
+                        .StartNow()
+                        .WithSimpleSchedule(x =>
+                            x.WithInterval(TimeSpan.FromMilliseconds(internalProcessingPoolingInterval.Value))
+                                .RepeatForever())
+                        .Build();
+            }
+            else
+            {
+                processInternalCommandsTrigger =
+                    TriggerBuilder
+                        .Create()
+                        .StartNow()
+                        .WithCronSchedule("0/2 * * ? * *")
+                .Build();
+            }
 
-            //scheduler.ScheduleJob(processInternalCommandsJob, processInternalCommandsTrigger).GetAwaiter().GetResult();
+            scheduler.ScheduleJob(processInternalCommandsJob, processInternalCommandsTrigger).GetAwaiter().GetResult();
 
         }
     }

@@ -2,14 +2,17 @@
 using Blog.BuildingBlocks.Infrastrocture;
 using Blog.BuildingBlocks.Infrastrocture.DomainEventsDispatching;
 using Blog.BuildingBlocks.Infrastrocture.EventBus;
+using Blog.BuildingBlocks.Infrastrocture.InternalCommands;
 using Blog.BuildingBlocks.Peresentation.Endpoints;
 using Blog.Modules.LogSystem.Application.Contracts.UnitOfWork;
 using Blog.Modules.LogSystem.Application.EventHandler.Content.Blog;
+using Blog.Modules.LogSystem.Application.Features;
 using Blog.Modules.LogSystem.Application.Proccessing.InternalCommand;
 using Blog.Modules.LogSystem.Domain.Log.Repository;
 using Blog.Modules.LogSystem.Infrastrocture.Configuration.EventsBus;
 using Blog.Modules.LogSystem.Infrastrocture.Configuration.Proccessing;
 using Blog.Modules.LogSystem.Infrastrocture.Configuration.Proccessing.Inbox;
+using Blog.Modules.LogSystem.Infrastrocture.Configuration.Proccessing.InternalCommands;
 using Blog.Modules.LogSystem.Infrastrocture.Configuration.Proccessing.Quartz;
 using Blog.Modules.LogSystem.Infrastrocture.Proccessing.InternalCommand;
 using Blog.Modules.LogSystem.Infrastrocture.Repository;
@@ -66,6 +69,12 @@ namespace Blog.Modules.LogSystem.Infrastrocture.ServiceConfiguration
             services.AddScoped<ILogRepository, LogRepository>();
             services.AddScoped<ILogCommandsScheduler, LogCommandsScheduler>();
             services.AddScoped<EventsBusStartup>();
+
+            BiDictionary<string, Type> internalCommandsMap = new BiDictionary<string, Type>();
+            internalCommandsMap.Add("CreateLog", typeof(CreateLogCommand));
+            services.AddSingleton<IInternalCommandsMapper>(new InternalCommandsMapper(internalCommandsMap));
+            //services.AddSingleton(internalCommandsMap);
+
         }
 
 

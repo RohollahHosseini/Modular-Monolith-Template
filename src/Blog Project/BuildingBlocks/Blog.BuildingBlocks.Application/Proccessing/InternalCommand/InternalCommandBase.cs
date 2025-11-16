@@ -3,7 +3,7 @@ using static Blog.BuildingBlocks.Application.CQRS.Command.ICommand;
 
 namespace Blog.BuildingBlocks.Application.Proccessing.InternalCommand
 {
-    public abstract class InternalCommandBase : ICommand
+    public abstract record InternalCommandBase : ICommand
     {
         protected InternalCommandBase(Guid id)
         {
@@ -13,7 +13,7 @@ namespace Blog.BuildingBlocks.Application.Proccessing.InternalCommand
         public Guid Id { get; }
     }
 
-    public abstract class InternalCommandBase<TResult> : ICommand<TResult>
+    public abstract record InternalCommandBase<TResult> : ICommand<TResult>
     {
         protected InternalCommandBase()
         {

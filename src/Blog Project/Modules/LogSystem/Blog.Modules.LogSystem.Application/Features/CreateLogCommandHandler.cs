@@ -1,6 +1,5 @@
 ﻿using Blog.BuildingBlocks.Application.CQRS.Command;
 using Blog.BuildingBlocks.Application.Events.Result;
-using Blog.BuildingBlocks.Infrastrocture;
 using Blog.Modules.LogSystem.Application.Contracts.UnitOfWork;
 using Blog.Modules.LogSystem.Domain.Log;
 using Blog.Modules.LogSystem.Domain.Log.Repository;
