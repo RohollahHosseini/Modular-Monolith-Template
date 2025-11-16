@@ -1,6 +1,6 @@
 ﻿using Blog.BuildingBlocks.Infrastrocture.Outbox;
-using Blog.Modules.Content.Infrastrocture.Configuration.BlogConfig;
-using Blog.Modules.Content.Infrastrocture.Configuration.CategoryConfig;
+using Blog.Modules.Content.Infrastrocture.EntityConfiguration.BlogConfig;
+using Blog.Modules.Content.Infrastrocture.EntityConfiguration.CategoryConfig;
 using Blog.Modules.Content.Infrastrocture.Outbox;
 using Microsoft.EntityFrameworkCore;
 

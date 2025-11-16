@@ -10,6 +10,11 @@ using Blog.BuildingBlocks.Peresentation.EndpointFilters;
 using Blog.Web.WebFramwork.Swagger;
 using Blog.Web.WebFramwork.ServiceConfiguration;
 using Blog.Web.WebFramwork.Middlewares;
+using Autofac.Core;
+using Blog.Modules.Content.Infrastrocture.Configuration.Proccessing;
+using Blog.BuildingBlocks.Infrastrocture.EventBus;
+using Blog.Modules.Content.IntegrationEvents.CreateBlog;
+using Blog.Modules.LogSystem.Application.EventHandler.Content.Blog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -59,6 +64,14 @@ Assembly[] moduleApplicationAssemblies = [
 builder.Services.ServiceCollectionExtensionsBuildingBlockApplication(moduleApplicationAssemblies);
 
 var app = builder.Build();
+
+// گرفتن service scope factory از DI
+var scopeFactory = app.Services.GetRequiredService<IServiceScopeFactory>();
+app.BlogServiceScopExtensions(scopeFactory,configuration);
+app.LogSystemServiceScopExtensions(scopeFactory,configuration);
+
+
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

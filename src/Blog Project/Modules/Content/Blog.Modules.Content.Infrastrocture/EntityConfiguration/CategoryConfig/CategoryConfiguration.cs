@@ -1,9 +1,9 @@
-﻿using Blog.Modules.Content.Infrastrocture.Configuration.Schema;
+﻿using Blog.Modules.Content.Infrastrocture.EntityConfiguration.Schema;
 using Blog.Modules.Content.Model.Category;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Blog.Modules.Content.Infrastrocture.Configuration.CategoryConfig
+namespace Blog.Modules.Content.Infrastrocture.EntityConfiguration.CategoryConfig
 {
     internal class CategoryConfiguration : IEntityTypeConfiguration<CategoryEntity>
     {

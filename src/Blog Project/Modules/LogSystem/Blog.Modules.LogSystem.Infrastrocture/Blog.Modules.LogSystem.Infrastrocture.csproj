@@ -3,11 +3,18 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.10" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.10" />
 	  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.10" />
+	  <PackageReference Include="Quartz" Version="3.15.1" />
+	  <PackageReference Include="Quartz.Extensions.DependencyInjection" Version="3.15.1" />
+	  <PackageReference Include="Quartz.Extensions.Hosting" Version="3.15.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\BuildingBlocks\Blog.BuildingBlocks.Infrastrocture\Blog.BuildingBlocks.Infrastrocture.csproj" />
     <ProjectReference Include="..\Blog.Modules.LogSystem.Application\Blog.Modules.LogSystem.Application.csproj" />
     <ProjectReference Include="..\Blog.Modules.LogSystem.Domain\Blog.Modules.LogSystem.Domain.csproj" />
     <ProjectReference Include="..\Blog.Modules.LogSystem.Peresentation\Blog.Modules.LogSystem.Peresentation.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Configuration\Proccessing\InternalCommands\" />
+    <Folder Include="Configuration\Proccessing\Outbox\" />
   </ItemGroup>
 </Project>

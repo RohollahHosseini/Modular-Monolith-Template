@@ -1,4 +1,4 @@
-﻿namespace Blog.Modules.Content.Infrastrocture.Configuration.Schema
+﻿namespace Blog.Modules.Content.Infrastrocture.EntityConfiguration.Schema
 {
     public static class BaseSchema
     {

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Blog.Modules.LogSystem.Infrastrocture.Configuration.LogInternalCommandConfig
+namespace Blog.Modules.LogSystem.Infrastrocture.EntityConfiguration.LogInternalCommandConfig
 {
     internal class LogInternalCommandConfiguration : IEntityTypeConfiguration<LogInternalCommandEntity>
     {

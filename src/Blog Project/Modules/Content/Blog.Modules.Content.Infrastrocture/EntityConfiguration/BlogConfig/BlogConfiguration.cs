@@ -1,10 +1,10 @@
-﻿using Blog.Modules.Content.Infrastrocture.Configuration.Schema;
+﻿using Blog.Modules.Content.Infrastrocture.EntityConfiguration.Schema;
 using Blog.Modules.Content.Model.Blog;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Blog.Modules.Content.Infrastrocture.Configuration.BlogConfig
+namespace Blog.Modules.Content.Infrastrocture.EntityConfiguration.BlogConfig
 {
     internal class BlogConfiguration : IEntityTypeConfiguration<BlogEntity>
     {
