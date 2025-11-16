@@ -10,7 +10,7 @@ namespace Blog.Modules.LogSystem.Infrastrocture.Configuration.Proccessing.Inbox
         public async Task Handle(ProcessInboxCommand request, CancellationToken cancellationToken)
         {
             var logSystemInboxes = await dbcontext.InboxMessages
-                .Where(c => c.ProcessedDate != null).ToListAsync();
+                .Where(c => c.ProcessedDate == null).ToListAsync();
 
             foreach (var inbox in logSystemInboxes)
             {
@@ -23,7 +23,7 @@ namespace Blog.Modules.LogSystem.Infrastrocture.Configuration.Proccessing.Inbox
 
                 try
                 {
-                    await mediator.Publish((INotification)request, cancellationToken);
+                    await mediator.Publish((INotification)req!, cancellationToken);
                 }
                 catch (Exception e)
                 {

@@ -9,7 +9,11 @@ namespace Blog.Modules.Content.Application.EventNotification.Content
     {
         public async Task Handle(CreateBlogNotification notification, CancellationToken cancellationToken)
         {
-            await eventsBus.Publish(new CreateBlogIntegrationEvent(notification.DomainEvent.Id,notification.DomainEvent.OccurredOn,notification.DomainEvent.BlogId,notification.DomainEvent.BlogTitle));
+            await eventsBus.Publish(new CreateBlogIntegrationEvent(
+                notification.Id,
+                notification.DomainEvent.OccurredOn, 
+                notification.DomainEvent.BlogId, 
+                notification.DomainEvent.BlogTitle));
 
         }
     }

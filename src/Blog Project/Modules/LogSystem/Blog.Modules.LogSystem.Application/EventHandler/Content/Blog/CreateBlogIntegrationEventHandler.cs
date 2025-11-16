@@ -9,7 +9,11 @@ namespace Blog.Modules.LogSystem.Application.EventHandler.Content.Blog
 
         public async Task Handle(CreateBlogIntegrationEvent notification, CancellationToken cancellationToken)
         {
-            await commandsScheduler.EnqueueAsync(new CreateBlogCommand(Guid.NewGuid(),notification.BlogId,notification.BlogTitle));
+            await commandsScheduler.EnqueueAsync(
+                new CreateBlogCommand(
+                    Guid.NewGuid(),
+                    notification.BlogId,
+                    notification.BlogTitle));
         }
     }
 }
