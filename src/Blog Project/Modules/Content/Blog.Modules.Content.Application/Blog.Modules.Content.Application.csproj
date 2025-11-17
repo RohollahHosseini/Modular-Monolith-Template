@@ -2,6 +2,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\BuildingBlocks\Blog.BuildingBlocks.Application\Blog.BuildingBlocks.Application.csproj" />
     <ProjectReference Include="..\..\..\BuildingBlocks\Blog.BuildingBlocks.Infrastrocture\Blog.BuildingBlocks.Infrastrocture.csproj" />
+    <ProjectReference Include="..\Blog.Modules.Content.IntegrationEvents\Blog.Modules.Content.IntegrationEvents.csproj" />
     <ProjectReference Include="..\Blog.Modules.Content.Model\Blog.Modules.Content.Model.csproj" />
   </ItemGroup>
   <ItemGroup>

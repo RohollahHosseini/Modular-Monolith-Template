@@ -1,4 +1,4 @@
-﻿using Blog.BuildingBlocks.Peresentation.Extensions;
+﻿using Blog.BuildingBlocks.SharedKernel.Extensions;
 using System.Diagnostics;
 
 namespace Blog.BuildingBlocks.Peresentation.ApiResult

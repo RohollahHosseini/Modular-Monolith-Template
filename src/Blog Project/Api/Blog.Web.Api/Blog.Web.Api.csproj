@@ -20,8 +20,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\BuildingBlocks\Blog.BuildingBlocks.Infrastrocture\Blog.BuildingBlocks.Infrastrocture.csproj" />
+    <ProjectReference Include="..\..\BuildingBlocks\Blog.BuildingBlocks.SharedKernel\Blog.BuildingBlocks.SharedKernel.csproj" />
     <ProjectReference Include="..\..\Modules\Content\Blog.Modules.Content.Infrastrocture\Blog.Modules.Content.Infrastrocture.csproj" />
     <ProjectReference Include="..\..\Modules\LogSystem\Blog.Modules.LogSystem.Infrastrocture\Blog.Modules.LogSystem.Infrastrocture.csproj" />
+    <ProjectReference Include="..\Blog.Web.WebFramwork\Blog.Web.WebFramwork.csproj" />
   </ItemGroup>
 
 </Project>

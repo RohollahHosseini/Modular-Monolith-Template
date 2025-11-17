@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Blog.BuildingBlocks.Peresentation.EndpointFilters
 {
-    internal class OkResultEndpointFilter : IApiEndpointFilter
+    public class OkResultEndpointFilter : IApiEndpointFilter
     {
         public async ValueTask<object?> InvokeAsync(EndpointFilterInvocationContext context, EndpointFilterDelegate next)
         {

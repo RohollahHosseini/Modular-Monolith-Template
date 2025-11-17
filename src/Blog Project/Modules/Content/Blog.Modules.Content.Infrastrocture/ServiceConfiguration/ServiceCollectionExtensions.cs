@@ -11,6 +11,13 @@ using Blog.Modules.Content.Infrastrocture.Outbox;
 using Blog.BuildingBlocks.Infrastrocture.DomainEventsDispatching;
 using Blog.Modules.Content.Infrastrocture.UnitOfWork;
 using Blog.Modules.Content.Application.Conteracts.UnitOfWork;
+using Blog.Modules.Content.Model.Blog.Events;
+using Blog.Modules.Content.Application.EventNotification.Content;
+using Blog.Modules.Content.Infrastrocture.Configuration.Proccessing;
+using Quartz;
+using Blog.Modules.Content.Infrastrocture.Configuration.Proccessing.Quartz;
+using Microsoft.AspNetCore.Builder;
+using Blog.Modules.Content.Infrastrocture.Configuration.Proccessing.Outbox;
 
 namespace Blog.Modules.Content.Infrastrocture.ServiceConfiguration
 {
@@ -21,6 +28,28 @@ namespace Blog.Modules.Content.Infrastrocture.ServiceConfiguration
             services.AddInfrastrocture(configuration);
 
             services.AddEndpoints(AssemblyReference.Assembly);
+
+            var domainNotificationsMap = new BiDictionary<string, Type>();
+            domainNotificationsMap.Add(nameof(BlogCreatedDomainEvent), typeof(CreateBlogNotification));
+
+            services.AddSingleton(domainNotificationsMap);
+
+            //quartz
+            services.AddQuartz(c =>
+            {
+            });
+
+            services.AddQuartzHostedService(options =>
+             {
+                 options.WaitForJobsToComplete = true;
+             });
+
+          
+
+            services.AddMediatR(cfg =>
+            {
+                cfg.RegisterServicesFromAssembly(typeof(ProcessOutboxCommandHandler).Assembly);
+            });
 
             return services;
         }
@@ -40,6 +69,17 @@ namespace Blog.Modules.Content.Infrastrocture.ServiceConfiguration
             services.AddScoped<IContentUnitOfWork, ContentUnitOfWork>();
 
             services.AddScoped<IBlogRepository, BlogRepository>();
+        }
+
+
+
+        public static void BlogServiceScopExtensions(this WebApplication app, IServiceScopeFactory services,IConfiguration configuration)
+        {
+            CommandsExecutor.Configure(services);
+
+
+            var quartzIntervalTime = configuration.GetSection("QuartzConfig:ContentModule").Value.ToString();
+            QuartzStartup.Initialize(long.Parse(quartzIntervalTime!));
         }
 
     }
