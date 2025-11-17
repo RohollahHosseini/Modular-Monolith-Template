@@ -7,5 +7,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Features\Blog\Queries\" />
+    <Folder Include="Features\Category\Queries\" />
   </ItemGroup>
 </Project>

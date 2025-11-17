@@ -1,0 +1,9 @@
+﻿using Blog.Modules.Content.Model.Category;
+
+namespace Blog.Modules.Content.Model.Blog.Contracts.Category
+{
+    public interface ICategoryRepository
+    {
+        Task AddCategoryAsync(CategoryEntity category,CancellationToken cancellationToken = default);
+    }
+}

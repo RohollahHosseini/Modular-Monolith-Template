@@ -25,9 +25,9 @@ namespace Blog.BuildingBlocks.Infrastrocture.BaseRespository
             return await Entities.ToListAsync();
         }
 
-        protected virtual async Task AddAsync(TEntity entity)
+        protected virtual async Task AddAsync(TEntity entity,CancellationToken cancellationToken=default)
         {
-            await Entities.AddAsync(entity);
+            await Entities.AddAsync(entity,cancellationToken);
 
         }
 
