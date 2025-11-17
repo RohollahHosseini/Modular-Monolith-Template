@@ -4,6 +4,7 @@ using Blog.BuildingBlocks.Infrastrocture.InternalCommands;
 using Blog.BuildingBlocks.Infrastrocture.Serialization;
 using Blog.Modules.LogSystem.Application.Proccessing.InternalCommand;
 using Blog.Modules.LogSystem.Domain.Log;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
 namespace Blog.Modules.LogSystem.Infrastrocture.Configuration.Proccessing.InternalCommands
@@ -12,6 +13,8 @@ namespace Blog.Modules.LogSystem.Infrastrocture.Configuration.Proccessing.Intern
     {
         public async Task EnqueueAsync(ICommand command)
         {
+            var exists = await dbContext.InternalCommands.AnyAsync(c => c.Id == command.Id);
+            if (exists) return;
 
             var intenamCommand = LogInternalCommandEntity.CreateInternamCommand(
                 Id: command.Id,
@@ -24,12 +27,15 @@ namespace Blog.Modules.LogSystem.Infrastrocture.Configuration.Proccessing.Intern
 
             await dbContext.InternalCommands.AddAsync(intenamCommand);
 
-            //await dbContext.SaveChangesAsync();
+            await dbContext.SaveChangesAsync();
         }
 
         public async Task EnqueueAsync<T>(ICommand<T> command)
         {
 
+            var exists = await dbContext.InternalCommands.AnyAsync(c => c.Id == command.Id);
+            if (exists) return; 
+
             var intenamCommand = LogInternalCommandEntity.CreateInternamCommand(
                 Id: command.Id,
                 EnqueueDate: DateTime.UtcNow,
@@ -40,7 +46,7 @@ namespace Blog.Modules.LogSystem.Infrastrocture.Configuration.Proccessing.Intern
                 }));
 
             await dbContext.InternalCommands.AddAsync(intenamCommand);
-            //await dbContext.SaveChangesAsync();
+            await dbContext.SaveChangesAsync();
         }
     }
 }

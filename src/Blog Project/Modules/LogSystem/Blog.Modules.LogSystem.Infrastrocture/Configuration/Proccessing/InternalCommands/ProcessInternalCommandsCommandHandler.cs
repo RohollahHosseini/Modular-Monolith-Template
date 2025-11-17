@@ -40,18 +40,28 @@ namespace Blog.Modules.LogSystem.Infrastrocture.Configuration.Proccessing.Intern
                 var result = await policy.ExecuteAndCaptureAsync(() => ProcessCommand(
                    internalCommand));
 
-                if (result.Outcome == OutcomeType.Failure)
+                if (result.Outcome == OutcomeType.Successful)
+                {
+                    await dbContext.InternalCommands
+                        .Where(c=>c.Id == internalCommand.Id)
+                        .ExecuteUpdateAsync(set=>
+                                set.SetProperty(c=>c.ProcessedDate,DateTime.UtcNow)
+                                   ,cancellationToken);
+                    
+                }
+                else
                 {
                     await dbContext.InternalCommands
                         .Where(c=>c.Id == internalCommand.Id)
                         .ExecuteUpdateAsync(set=>
                                 set.SetProperty(c=>c.ProcessedDate,DateTime.UtcNow)
                                    .SetProperty(c=>c.Error, result.FinalException.ToString())
-                                   .SetProperty(c=>c.Id,internalCommand.Id));
+                                   ,cancellationToken);
+
                 }
+                    await dbContext.SaveChangesAsync();
             }
 
-            await dbContext.SaveChangesAsync();
         }
 
         private async Task ProcessCommand(

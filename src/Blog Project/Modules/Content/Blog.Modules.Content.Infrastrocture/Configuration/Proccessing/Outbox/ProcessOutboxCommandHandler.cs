@@ -11,28 +11,29 @@ namespace Blog.Modules.Content.Infrastrocture.Configuration.Proccessing.Outbox
     {
         public async Task Handle(ProcessOutboxCommand request, CancellationToken cancellationToken)
         {
-            var outboxResults = dbcontext.OutboxMessages
+            var outboxResults = await dbcontext.OutboxMessages
                 .Where(c => c.ProcessedDate == null)
-                .ToListAsync();
+                .ToListAsync(cancellationToken);
 
-            if (outboxResults.Result.Count > 0)
+            if (outboxResults.Count > 0)
             {
-                foreach (var outbox in outboxResults.Result)
+                foreach (var outbox in outboxResults)
                 {
                     var type = _domainNotificationsMapper.GetType(outbox.Type);
                     var @event = JsonConvert.DeserializeObject(outbox.Data, type) as IDomainEventNotification;
 
                     //using (LogContext.Push(new OutboxMessageContextEnricher(@event)))
                     //{
-                    await _mediator.Publish(@event, cancellationToken);
+                     await _mediator.Publish(@event, cancellationToken);
 
                     await dbcontext.OutboxMessages
-                        .Where(c => c.Id == outbox.Id).ExecuteUpdateAsync(set => set.SetProperty(c => c.ProcessedDate, DateTime.UtcNow));
+                        .Where(c => c.Id == outbox.Id)
+                        .ExecuteUpdateAsync(set => set.SetProperty(c => c.ProcessedDate, DateTime.UtcNow),cancellationToken);
 
 
                     //}
                 }
-           await dbcontext.SaveChangesAsync();
+                await dbcontext.SaveChangesAsync(cancellationToken);
             }
         }
 

@@ -34,9 +34,6 @@ namespace Blog.Modules.LogSystem.Infrastrocture.ServiceConfiguration
             services.AddInfrastrocture(configuration);
             services.AddEndpoints(AssemblyReference.Assembly);
 
-            services.AddMediatR(cfg =>
-    cfg.RegisterServicesFromAssemblyContaining<CreateBlogIntegrationEventHandler>());
-
             //quartz
             services.AddQuartz(c =>
             {
@@ -73,7 +70,6 @@ namespace Blog.Modules.LogSystem.Infrastrocture.ServiceConfiguration
             BiDictionary<string, Type> internalCommandsMap = new BiDictionary<string, Type>();
             internalCommandsMap.Add("CreateLog", typeof(CreateLogCommand));
             services.AddSingleton<IInternalCommandsMapper>(new InternalCommandsMapper(internalCommandsMap));
-            //services.AddSingleton(internalCommandsMap);
 
         }
 
