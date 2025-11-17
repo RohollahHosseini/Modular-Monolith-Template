@@ -1,5 +1,5 @@
 ﻿using Blog.BuildingBlocks.Infrastrocture.Outbox;
-using Blog.Modules.Content.Infrastrocture.Configuration.Schema;
+using Blog.Modules.Content.Infrastrocture.EntityConfiguration.Schema;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
