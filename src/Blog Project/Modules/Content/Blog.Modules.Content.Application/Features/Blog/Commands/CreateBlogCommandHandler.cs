@@ -2,7 +2,7 @@
 using Blog.BuildingBlocks.Infrastrocture;
 using Blog.Modules.Content.Application.Conteracts.UnitOfWork;
 using Blog.Modules.Content.Model.Blog;
-using Blog.Modules.Content.Model.Blog.Contracts.Blog;
+using Blog.Modules.Content.Model.Conteracts.Blog;
 using MediatR;
 
 namespace Blog.Modules.Content.Application.Features.Blog.Commands

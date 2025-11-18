@@ -1,4 +1,5 @@
 ﻿using Blog.BuildingBlocks.Infrastrocture.EventBus;
+using Blog.Modules.Content.IntegrationEvents.Category.CreateCategory;
 using Blog.Modules.Content.IntegrationEvents.CreateBlog;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -28,6 +29,7 @@ namespace Blog.Modules.LogSystem.Infrastrocture.Configuration.EventsBus
         {
 
             SubscribeToIntegrationEvent<CreateBlogIntegrationEvent>();
+            SubscribeToIntegrationEvent<CreatedCategoryIntegrationEvent>();
         }
 
         private  void SubscribeToIntegrationEvent<T>()

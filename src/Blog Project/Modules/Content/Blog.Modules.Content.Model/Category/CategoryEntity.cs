@@ -1,6 +1,7 @@
 ﻿using Blog.BuildingBlocks.Model;
 using Blog.BuildingBlocks.Model.BusinessRule.PublicRules;
 using Blog.Modules.Content.Model.Blog;
+using Blog.Modules.Content.Model.Category.Events;
 
 namespace Blog.Modules.Content.Model.Category
 {
@@ -22,13 +23,19 @@ namespace Blog.Modules.Content.Model.Category
 
             CheckRule(new StrignIsNullOrEmptyRule(title));
 
-            return new CategoryEntity()
+            var @categoryEntity= new CategoryEntity()
             {
                     Id = Guid.NewGuid(),
                     CategoryTitle=title,
                     Description=description,
                     ParentCategoryId=parentCategoryId,
             };
+
+            //rais event
+            @categoryEntity.Raise(new CategoryCreatedDomainEvent(
+                                       @categoryEntity.Id,                                                           @categoryEntity.CategoryTitle));
+
+            return @categoryEntity;
         }
 
         public void Edit(string title, string? description, Guid? parentCategoryId)

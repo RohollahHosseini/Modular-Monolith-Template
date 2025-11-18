@@ -1,5 +1,4 @@
 ﻿using Blog.Modules.Content.Infrastrocture.Repositories.Blog;
-using Blog.Modules.Content.Model.Blog.Contracts.Blog;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,12 +11,17 @@ using Blog.BuildingBlocks.Infrastrocture.DomainEventsDispatching;
 using Blog.Modules.Content.Infrastrocture.UnitOfWork;
 using Blog.Modules.Content.Application.Conteracts.UnitOfWork;
 using Blog.Modules.Content.Model.Blog.Events;
-using Blog.Modules.Content.Application.EventNotification.Content;
 using Blog.Modules.Content.Infrastrocture.Configuration.Proccessing;
 using Quartz;
 using Blog.Modules.Content.Infrastrocture.Configuration.Proccessing.Quartz;
 using Microsoft.AspNetCore.Builder;
 using Blog.Modules.Content.Infrastrocture.Configuration.Proccessing.Outbox;
+using Blog.Modules.Content.Model.Conteracts.Blog;
+using Blog.Modules.Content.Application.EventNotification.Content.Blog;
+using Blog.Modules.Content.Model.Conteracts.Category;
+using Blog.Modules.Content.Infrastrocture.Repositories.Category;
+using Blog.Modules.Content.Model.Category.Events;
+using Blog.Modules.Content.Application.EventNotification.Content.Category;
 
 namespace Blog.Modules.Content.Infrastrocture.ServiceConfiguration
 {
@@ -31,6 +35,7 @@ namespace Blog.Modules.Content.Infrastrocture.ServiceConfiguration
 
             var domainNotificationsMap = new BiDictionary<string, Type>();
             domainNotificationsMap.Add(nameof(BlogCreatedDomainEvent), typeof(CreateBlogNotification));
+            domainNotificationsMap.Add(nameof(CategoryCreatedDomainEvent), typeof(CreateCategoryNotification));
 
             services.AddSingleton(domainNotificationsMap);
 
@@ -69,6 +74,7 @@ namespace Blog.Modules.Content.Infrastrocture.ServiceConfiguration
             services.AddScoped<IContentUnitOfWork, ContentUnitOfWork>();
 
             services.AddScoped<IBlogRepository, BlogRepository>();
+            services.AddScoped<ICategoryRepository,CategoryRepository>();
         }
 
 
