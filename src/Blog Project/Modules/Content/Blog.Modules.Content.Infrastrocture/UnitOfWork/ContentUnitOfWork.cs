@@ -1,6 +1,5 @@
-﻿using Blog.BuildingBlocks.Infrastrocture;
-using Blog.BuildingBlocks.Infrastrocture.DomainEventsDispatching;
-using Blog.Modules.Content.Application.Conteracts.UnitOfWork;
+﻿using Blog.BuildingBlocks.Infrastrocture.DomainEventsDispatching;
+using Blog.Modules.Content.Application.Contracts.UnitOfWork;
 
 namespace Blog.Modules.Content.Infrastrocture.UnitOfWork
 {

@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Blog.BuildingBlocks.Application.CQRS.ValidationBase.Conteracts
+namespace Blog.BuildingBlocks.Application.CQRS.ValidationBase.Contracts
 {
     public interface IValidatableModel<TApplicationModel>where TApplicationModel : class
     {

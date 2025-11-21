@@ -32,7 +32,7 @@ namespace Blog.BuildingBlocks.Model
         }
 
 
-        protected void CheckRule(IBusinessRule rule)
+        protected static void CheckRule(IBusinessRule rule)
         {
             if (rule.IsBroken())
             {
