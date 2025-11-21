@@ -1,6 +1,6 @@
 ﻿using Blog.Modules.Content.Model.Category;
 
-namespace Blog.Modules.Content.Model.Conteracts.Category
+namespace Blog.Modules.Content.Model.Contracts.Category
 {
     public interface ICategoryRepository
     {

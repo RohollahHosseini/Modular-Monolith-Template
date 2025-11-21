@@ -1,8 +1,8 @@
 ﻿using Blog.BuildingBlocks.Application.CQRS.Command;
 using Blog.BuildingBlocks.Application.Events.Result;
-using Blog.Modules.Content.Application.Conteracts.UnitOfWork;
+using Blog.Modules.Content.Application.Contracts.UnitOfWork;
 using Blog.Modules.Content.Model.Category;
-using Blog.Modules.Content.Model.Conteracts.Category;
+using Blog.Modules.Content.Model.Contracts.Category;
 
 namespace Blog.Modules.Content.Application.Features.Category.Commands
 {

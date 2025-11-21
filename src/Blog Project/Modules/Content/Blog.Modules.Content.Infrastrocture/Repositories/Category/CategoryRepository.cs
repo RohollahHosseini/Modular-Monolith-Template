@@ -1,6 +1,6 @@
 ﻿using Blog.BuildingBlocks.Infrastrocture.BaseRespository;
 using Blog.Modules.Content.Model.Category;
-using Blog.Modules.Content.Model.Conteracts.Category;
+using Blog.Modules.Content.Model.Contracts.Category;
 
 namespace Blog.Modules.Content.Infrastrocture.Repositories.Category
 {

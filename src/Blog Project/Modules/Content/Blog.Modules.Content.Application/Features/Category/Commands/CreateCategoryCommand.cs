@@ -1,6 +1,6 @@
 ﻿using Blog.BuildingBlocks.Application.CQRS.Command;
 using Blog.BuildingBlocks.Application.CQRS.ValidationBase;
-using Blog.BuildingBlocks.Application.CQRS.ValidationBase.Conteracts;
+using Blog.BuildingBlocks.Application.CQRS.ValidationBase.Contracts;
 using FluentValidation;
 
 namespace Blog.Modules.Content.Application.Features.Category.Commands
