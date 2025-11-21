@@ -1,5 +1,4 @@
 ﻿using Blog.BuildingBlocks.Application.Events.Result;
-using Blog.BuildingBlocks.Infrastrocture;
 using Blog.Modules.Content.Application.Contracts.UnitOfWork;
 using Blog.Modules.Content.Model.Blog;
 using Blog.Modules.Content.Model.Contracts.Blog;
@@ -11,8 +10,7 @@ namespace Blog.Modules.Content.Application.Features.Blog.Commands
     {
         async Task<OperationResult<bool>> IRequestHandler<CreateBlogCommand, OperationResult<bool>>.Handle(CreateBlogCommand request, CancellationToken cancellationToken)
         {
-            BlogEntity blog = new();
-            var newBlog= blog.Create(request.BlogTitle, request.BlogContent, request.CategoryId);
+            var newBlog= BlogEntity.Create(request.BlogTitle, request.BlogContent, request.CategoryId);
 
             await blogRepository.AddBlogAsync(newBlog);
 

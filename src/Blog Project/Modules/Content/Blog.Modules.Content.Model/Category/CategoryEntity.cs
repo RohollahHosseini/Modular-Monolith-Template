@@ -18,7 +18,7 @@ namespace Blog.Modules.Content.Model.Category
         #endregion
 
 
-        public CategoryEntity CreateCategory(string title,string? description ,Guid? parentCategoryId )
+        public static CategoryEntity CreateCategory(string title,string? description ,Guid? parentCategoryId )
         {
 
             CheckRule(new StrignIsNullOrEmptyRule(title));

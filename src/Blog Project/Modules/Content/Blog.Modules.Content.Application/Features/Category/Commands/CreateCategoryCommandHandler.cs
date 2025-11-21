@@ -10,9 +10,8 @@ namespace Blog.Modules.Content.Application.Features.Category.Commands
     {
         public async Task<OperationResult<bool>> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
         {
-            CategoryEntity categoryEntity = new();
 
-            var newCategory=categoryEntity.CreateCategory(request.Title, request.Description, request.parentCategoryId);
+            var newCategory= CategoryEntity.CreateCategory(request.Title, request.Description, request.parentCategoryId);
 
             await categoryRepository.AddCategoryAsync(newCategory, cancellationToken);
 

@@ -12,7 +12,6 @@ namespace Blog.Modules.Content.Application.Features.Category.Commands
         public IValidator<CreateCategoryCommand> ValidateApplicationModel(ApplicationBaseValidationModelProvider<CreateCategoryCommand> validator)
         {
             validator.RuleFor(c => c.Title)
-                .NotNull().WithMessage("Title is required.")
                 .NotEmpty().WithMessage("Title is required.");
            
             return validator;
