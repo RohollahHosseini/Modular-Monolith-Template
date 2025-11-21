@@ -17,9 +17,9 @@ namespace Blog.Modules.LogSystem.Application.Features.Category
 
             await logRepository.AddLogAsync(logEntity);
 
-            var resultTransaction = await unitOfWork.CommitAsync();
+            var resultTransaction = await unitOfWork.CommitAsync(cancellationToken);
 
-            return OperationResult<bool>.SuccessResult(true);
+            return OperationResult<bool>.SuccessResult(resultTransaction is >0 ?true:false);
         }
     }
 }

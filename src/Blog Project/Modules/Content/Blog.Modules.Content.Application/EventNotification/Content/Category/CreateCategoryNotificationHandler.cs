@@ -10,9 +10,9 @@ namespace Blog.Modules.Content.Application.EventNotification.Content.Category
         {
             await eventsBus.Publish(new CreatedCategoryIntegrationEvent(
                                             notification.Id,
-                                            DateTime.UtcNow,
-                                            notification.DomainEvent.categoryId,
-                                            notification.DomainEvent.categoryTitle));
+                                            notification.DomainEvent.OccurredOn,
+                                            notification.DomainEvent.CategoryId,
+                                            notification.DomainEvent.CategoryTitle));
         }
     }
 }

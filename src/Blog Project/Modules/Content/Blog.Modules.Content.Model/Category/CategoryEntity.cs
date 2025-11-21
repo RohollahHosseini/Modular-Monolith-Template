@@ -32,8 +32,7 @@ namespace Blog.Modules.Content.Model.Category
             };
 
             //rais event
-            @categoryEntity.Raise(new CategoryCreatedDomainEvent(
-                                       @categoryEntity.Id,                                                           @categoryEntity.CategoryTitle));
+            @categoryEntity.Raise(new CategoryCreatedDomainEvent(@categoryEntity.Id, @categoryEntity.CategoryTitle));
 
             return @categoryEntity;
         }
