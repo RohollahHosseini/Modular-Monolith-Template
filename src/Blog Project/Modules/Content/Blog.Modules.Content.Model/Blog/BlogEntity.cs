@@ -36,7 +36,7 @@ namespace Blog.Modules.Content.Model.Blog
         //{
 
         //}
-        public BlogEntity Create(string blogTitle, string blogContent, Guid? categoryId)
+        public static BlogEntity Create(string blogTitle, string blogContent, Guid? categoryId)
         {
             //ArgumentNullException.ThrowIfNull(blogTitle);
             //ArgumentNullException.ThrowIfNull(blogContent);
@@ -94,7 +94,7 @@ namespace Blog.Modules.Content.Model.Blog
             CurrentState = BlogState.PendingReview;
         }
 
-        protected string GenerateSlug(string title)
+        protected static string GenerateSlug(string title)
         {
             //if (string.IsNullOrWhiteSpace(title))
             //    throw new ArgumentException("Title cannot be null or empty.");

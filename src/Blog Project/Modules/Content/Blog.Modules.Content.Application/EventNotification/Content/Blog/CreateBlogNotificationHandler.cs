@@ -2,7 +2,7 @@
 using Blog.Modules.Content.IntegrationEvents.CreateBlog;
 using MediatR;
 
-namespace Blog.Modules.Content.Application.EventNotification.Content
+namespace Blog.Modules.Content.Application.EventNotification.Content.Blog
 {
     public class CreateBlogNotificationHandler(IEventsBus eventsBus) :
         INotificationHandler<CreateBlogNotification>
@@ -11,8 +11,8 @@ namespace Blog.Modules.Content.Application.EventNotification.Content
         {
             await eventsBus.Publish(new CreateBlogIntegrationEvent(
                 notification.Id,
-                notification.DomainEvent.OccurredOn, 
-                notification.DomainEvent.BlogId, 
+                notification.DomainEvent.OccurredOn,
+                notification.DomainEvent.BlogId,
                 notification.DomainEvent.BlogTitle));
 
         }
