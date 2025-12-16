@@ -24,7 +24,11 @@ namespace Blog.BuildingBlocks.Model
                 return false;
 
 
-            return Id.Equals(other.Id);
+            if (EqualityComparer<TKey>.Default.Equals(Id, default) ||
+               EqualityComparer<TKey>.Default.Equals(other.Id, default))
+                return false;
+
+            return EqualityComparer<TKey>.Default.Equals(Id, other.Id);
         }
 
         public static bool operator !=(BaseEntity<TKey> a, BaseEntity<TKey> b)
